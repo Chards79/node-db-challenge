@@ -23,4 +23,21 @@ router.get('/', (req, res) => {
         });
 });
 
+// POST a new task
+
+router.post('/', (req, res) => {
+    const taskData = req.body;
+    db('tasks').insert(taskData)
+        .then(ids => {
+            db('tasks').where({ id: ids[0] })
+                .then(newTaskEntry => {
+                    res.status(201).json(newTaskEntry);
+                });
+        })
+        .catch(err => {
+            console.log('POST error for tasks', err);
+            res.status(500).json({ message: 'Failed to store data' });
+        });
+});
+
 module.exports = router;

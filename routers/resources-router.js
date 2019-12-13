@@ -23,4 +23,21 @@ router.get('/', (req, res) => {
         });
 });
 
+// POST a new resource
+
+router.post('/', (req, res) => {
+    const resourceData = req.body;
+    db('resources').insert(resourceData)
+        .then(ids => {
+            db('resources').where({ id: ids[0] })
+                .then(newResourceEntry => {
+                    res.status(201).json(newResourceEntry);
+                });
+        })
+        .catch(err => {
+            console.log('POST error for resources', err);
+            res.status(500).json({ message: 'Failed to store data' });
+        });
+});
+
 module.exports = router;
