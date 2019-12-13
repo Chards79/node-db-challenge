@@ -9,9 +9,9 @@ const tasksRouter = require('../routers/tasks-router');
 
 server.use(helmet());
 server.use(express.json());
-server.use('/api/routers', resourcesRouter);
-server.use('/api/routers', projectsRouter);
-server.use('/api/routers', tasksRouter);
+server.use('/api/routers/resources', resourcesRouter);
+server.use('/api/routers/projects', projectsRouter);
+server.use('/api/routers/tasks', tasksRouter);
 server.use('/api/routers', db);
 
 module.exports = server;
