@@ -40,11 +40,19 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] Explain the difference between `Relational Databases` and `SQL`.
 
+The difference is that relational databases are made up of tables with keys.
+
 - [ ] Why do tables need a `primary key`?
+
+It identifies data specific to that table; it makes the record unique.
 
 - [ ] What is the name given to a table column that references the primary key on another table.
 
+foreign key
+
 - [ ] What do we need in order to have a _many to many_ relationship between two tables.
+
+A joining or intermediary table, which holds the foreign keys.
 
 ## Minimum Viable Product
 
